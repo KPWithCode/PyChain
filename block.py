@@ -7,7 +7,14 @@ def mine_block(last_block, data):
     last_hash = last_block.hash
     hash = f'{timestamp}-{last_hash}'
 
-    return Block(timestamp,last_hash.hash,data)
+    return Block(timestamp,last_hash,hash,data)
+
+def genesis():
+    """
+    Genesis block.
+    """ 
+    return Block(1,'genesis_last_hash','genesis_hash',[])
+
 
 class Block:
     """
@@ -29,9 +36,9 @@ class Block:
             f'data: {self.data})'
         )
 def main():
-    block = Block('foo')
+    genesis_block = genesis()
+    block = mine_block(genesis_block,'foo')
     print(block)
-    print(f'block.py __name__: {__name__} ')
 
 if __name__ == '__main__':
     main()
