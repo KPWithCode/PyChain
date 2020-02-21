@@ -1,14 +1,29 @@
+
+def mine_block(last_block, data):
+    """
+    Mine a block based on the last_block and data given
+    """
+
+
 class Block:
     """
     Block: a unit of storage. 
     Store transactions in a blockchain that supports a cryptocurrency
     """
-    def __init__(self,data):
+    def __init__(self,timestamp,last_hash,hash,data):
+        self.timestamp = timestamp
+        self.last_hash = last_hash
+        self.hash = hash
         self.data = data
 
     def __repr__(self):
-        return f'Block - data: {self.data}'
-
+        return (
+            'Block('
+            f'timestamp: {self.timestamp}, '
+            f'last_hash: {self.last_hash}, '
+            f'hash: {self.hash}, '
+            f'data: {self.data})'
+        )
 def main():
     block = Block('foo')
     print(block)
