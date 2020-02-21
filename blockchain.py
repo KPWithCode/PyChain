@@ -1,4 +1,4 @@
-from block import Block, genesis,mine_block
+from block import Block
 class Blockchain:
     """
     Blockchain is a public ledger of transactions.
@@ -6,11 +6,11 @@ class Blockchain:
     """
     # constructor
     def __init__(self):
-        self.chain = [genesis()]
+        self.chain = [Block.genesis()]
 
     def add_block(self,data):
         # instantiate block at the top of blockchain method
-        self.chain.append(mine_block(self.chain[-1],data))
+        self.chain.append(Block.mine_block(self.chain[-1],data))
 
     def __repr__(self):
         return f'Blockchain: {self.chain}'
